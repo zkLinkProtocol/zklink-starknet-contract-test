@@ -1,26 +1,32 @@
-# Basic Sample Hardhat Project - with Starknet Plugin
+# Zklink-starknet-contract-test
 
-This project demonstrates a basic Hardhat project, but with [Starknet plugin](https://github.com/0xSpaceShard/starknet-hardhat-plugin).
+This project is designed to test zklink starknet contract with starknet hardhat plugin
 
 ## Get started
 
 #### Clone this repo
 
-```
-git clone git@github.com:0xSpaceShard/starknet-hardhat-example.git
-cd starknet-hardhat-example
+```shell
+git clone --recursive https://github.com/zkLinkProtocol/zklink-starknet-contract-test.git
+cd zklink-starknet-contract-test
 ```
 
 #### Install dependencies
 
-```
-npm ci
+```shell
+npm ci or npm install
 ```
 
-#### Compile a contract
+#### Install scarb
 
+```shell
+make scarb
 ```
-npx hardhat starknet-compile contracts/contract.cairo
+
+#### Compile contract
+
+```shell
+make build
 ```
 
 ### Set up environment variables
@@ -29,8 +35,9 @@ Some scripts require environment variables (search for usage of `ensureEnvVar` i
 
 #### Run a test that interacts with the compiled contract
 
-```
-npx hardhat test test/quick-test.ts
+```shell
+npx hardhat test test/***.ts or
+npx hardhat test scripts/***.ts
 ```
 
 ## Supported `starknet-hardhat-plugin` version
@@ -43,10 +50,5 @@ If you're having issues trying to use this example repo with the Starknet plugin
 
 ## Branches
 
-- `master` - latest stable examples
-- `plugin` - used for testing by [Starknet Hardhat Plugin](https://github.com/0xSpaceShard/starknet-hardhat-plugin)
+- `master` - latest stable
 
-### Branch updating (for developers)
-
-- New PRs and features should be targeted to the `plugin` branch.
-- After releasing a new plugin version, `master` should ideally be reset (fast forwarded) to `plugin` (less ideally merged).

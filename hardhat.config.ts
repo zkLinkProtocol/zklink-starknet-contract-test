@@ -23,7 +23,8 @@ export const config: HardhatUserConfig = {
         // uses the currently active Python environment (hopefully with available Starknet commands!)
         // venv: "active",
         recompile: false,
-
+        // 90s
+        requestTimeout: 90_000,
         // the directory containing Cairo 1 compiler binaries
         // cairo1BinDir: "path/to/to/compiler/target/release",
         // network: "integrated-devnet",

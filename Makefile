@@ -1,8 +1,12 @@
 
-
-build:
+buildAll: build_zklink_test_model build_zklink_starknet_contracts
 	scarb build
+
+build_zklink_test_model:
 	npx hardhat starknet-build --scarb-command scarb crates/zklink_test_model
+
+build_zklink_starknet_contracts:
+	npx hardhat starknet-build --scarb-command scarb crates/zklink_starknet_contracts
 
 clean:
 	npx hardhat clean
@@ -15,9 +19,8 @@ scarb:
 dep:
 	npm i
 
-
-buildAll:
-	scarb buildAll
+all:
+	scarb all
 
 test:
 	cd crates/zklink_test_model && scarb test
