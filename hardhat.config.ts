@@ -8,7 +8,9 @@ dotenv.config();
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-const config: HardhatUserConfig = {
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const config: HardhatUserConfig = {
     starknet: {
         dockerizedVersion: "0.11.2", // alternatively choose one of the two venv options below
         // uses (my-venv) defined by `python -m venv path/to/my-venv`
@@ -24,19 +26,10 @@ const config: HardhatUserConfig = {
 
         // the directory containing Cairo 1 compiler binaries
         // cairo1BinDir: "path/to/to/compiler/target/release",
-        network: "integrated-devnet",
-        wallets: {
-            OpenZeppelin: {
-                accountName: "OpenZeppelin",
-                modulePath: "starkware.starknet.wallets.open_zeppelin.OpenZeppelinAccount",
-                accountPath: "~/.starknet_accounts"
-            }
-        }
+        // network: "integrated-devnet",
+        network: "alpha-goerli"
     },
     networks: {
-        testnet: {
-            url: "https://starknet-goerli.g.alchemy.com/v2/32uy0LaRdmkMxMGPE5G-LI0yRUSvrYjA"
-        },
         devnet: {
             url: "http://127.0.0.1:5050"
         },
@@ -73,5 +66,3 @@ const config: HardhatUserConfig = {
         hardhat: {}
     }
 };
-
-export default config;

@@ -79,10 +79,7 @@ export async function mint(address: string, amount: number, lite = true) {
  * Returns an instance of OZAccount. Expected to be deployed)
  */
 export async function getOZAccount() {
-    return await starknet.OpenZeppelinAccount.getAccountFromAddress(
-        OZ_ACCOUNT_ADDRESS,
-        OZ_ACCOUNT_PRIVATE_KEY
-    );
+    return await starknet.OpenZeppelinAccount.getAccountFromAddress(OZ_ACCOUNT_ADDRESS, OZ_ACCOUNT_PRIVATE_KEY);
 }
 
 /**
@@ -100,10 +97,7 @@ export async function getPredeployedAccount(index = 0): Promise<PredeployedAccou
  */
 export async function getPredeployedOZAccount(index = 0): Promise<OpenZeppelinAccount> {
     const account = await getPredeployedAccount(index);
-    return await starknet.OpenZeppelinAccount.getAccountFromAddress(
-        account.address,
-        account.private_key
-    );
+    return await starknet.OpenZeppelinAccount.getAccountFromAddress(account.address, account.private_key);
 }
 
 /**
