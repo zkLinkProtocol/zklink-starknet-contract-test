@@ -34,4 +34,4 @@ jobs:
 
             - name: Run build
               continue-on-error: false
-              run: make build
+              run: make
