@@ -1,0 +1,45 @@
+[workspace]
+members = [
+    "crates/*",
+]
+
+#[workspace.scripts]
+#test = "snforge"
+#
+#[workspace.tool.snforge]
+#exit_first = true
+
+[workspace.dependencies]
+starknet = ">=2.1.0"
+alexandria_math = { git = "https://github.com/keep-starknet-strange/alexandria.git" }
+alexandria_data_structures = { git = "https://github.com/keep-starknet-strange/alexandria.git" }
+openzeppelin = { git = "https://github.com/OpenZeppelin/cairo-contracts.git", branch = "cairo-2" }
+
+#[workspace.package]
+#version = "0.1.0"
+
+#[package]
+#name = "workspaces"
+#version.workspace = true
+
+#[scripts]
+#test.workspace = true
+
+#[tool]
+#snforge.workspace = true
+
+#[dependencies]
+#starknet.workspace = true
+#zklink = { path = "crates/zklink-starknet-contracts" }
+#zklink_contract_serde = { path = "crates/zklink-contract-serde" }
+
+[[target.starknet-contract]]
+casm = true
+# Enable allowed libfuncs validation.
+allowed-libfuncs = true
+allowed-libfuncs-list.name = "all"
+
+
+[scripts]
+all = "scarb build && scarb test"
+
