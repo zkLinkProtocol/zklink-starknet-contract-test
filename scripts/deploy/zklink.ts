@@ -1,6 +1,6 @@
 import hardhat from "hardhat";
 import { getOZAccount } from "../../util/util";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 
 async function main() {
     const account = await getOZAccount();
