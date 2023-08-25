@@ -50,5 +50,5 @@ If you're having issues trying to use this example repo with the Starknet plugin
 
 ## Branches
 
-- `master` - latest stable
+- `main` - latest stable
 
