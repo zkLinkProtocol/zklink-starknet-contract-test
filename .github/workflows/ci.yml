@@ -18,11 +18,18 @@ jobs:
         steps:
             - name: Check out Git repository
               uses: actions/checkout@v3
+              with:
+                submodules: recursive
 
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
                   node-version: 16
+
+            - name: Set up scarb
+              uses: software-mansion/setup-scarb@v1
+              with:
+                scarb-version: "0.7.0"
 
             # ESLint and Prettier must be in `package.json`
             - name: Install Node.js dependencies
@@ -34,4 +41,4 @@ jobs:
 
             - name: Run build
               continue-on-error: false
-              run: make
+              run: echo "\n\nsierra = true\n\n[lib]\nsierra = true\n\n"  >> crates/zklink_starknet_contracts/Scarb.toml && make
