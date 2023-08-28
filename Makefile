@@ -1,3 +1,4 @@
+.PHONY: test fmt lint buildAll scarb dep all clean build_zklink_starknet_contracts build_zklink_test_model
 
 buildAll: build_zklink_test_model build_zklink_starknet_contracts
 	scarb build
@@ -23,8 +24,11 @@ all:
 	scarb all
 
 test:
-	cd crates/zklink_test_model && scarb test
+	#cd crates/zklink_test_model && scarb test
+	npx hardhat test test/*
 
 fmt:
 	cd crates/zklink_test_model && scarb fmt && npm run format
 
+lint:
+	npm run lint

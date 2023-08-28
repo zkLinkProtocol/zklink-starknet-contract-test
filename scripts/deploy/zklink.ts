@@ -1,20 +1,22 @@
 import hardhat from "hardhat";
 import { getOZAccount } from "../../util/util";
-import { AxiosError } from "axios";
+// import { AxiosError } from "axios";
 
 async function main() {
     const account = await getOZAccount();
     const contractFactory = await hardhat.starknet.getContractFactory("zklink_Zklink");
     // Class with hash is already declared
-    const txHash = await contractFactory.getClassHash().catch((e: AxiosError) => {
-        // really AxiosError?
-        console.log(e.message);
-    });
-    if (txHash) {
-        console.log(`Warning: Class with hash ${txHash} is already declared!`);
-    } else {
-        await account.declare(contractFactory);
-    }
+    // const txHash = await contractFactory.getClassHash().catch((e: AxiosError) => {
+    //     // really AxiosError?
+    //     console.log(e.message);
+    // });
+    // if (txHash) {
+    //     console.log(`Warning: Class with hash ${txHash} is already declared!`);
+    // } else {
+    //     await account.declare(contractFactory);
+    // }
+
+    const txHash = await account.declare(contractFactory);
     console.log("Declaration tx hash: ", txHash);
 
     /**

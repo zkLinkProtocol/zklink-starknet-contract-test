@@ -6,12 +6,13 @@ async function main() {
     const contractFactory = await hardhat.starknet.getContractFactory("zklink_test_model_ZklinkTestModel");
 
     // Class with hash is already declared
-    const txHash = await contractFactory.getClassHash();
-    if (txHash) {
-        console.log(`Warning: Class with hash ${txHash} is already declared!`);
-    } else {
-        await account.declare(contractFactory);
-    }
+    // const txHash = await contractFactory.getClassHash();
+    // if (txHash) {
+    //     console.log(`Warning: Class with hash ${txHash} is already declared!`);
+    // } else {
+    //     await account.declare(contractFactory);
+    // }
+    const txHash = await account.declare(contractFactory);
     console.log("Declaration tx hash: ", txHash);
     const contract = await account.deploy(contractFactory);
     console.log("Deployment tx hash: ", contract.deployTxHash);
